@@ -5,6 +5,7 @@ const canvasDom = document.querySelector("canvas");
 const canvas = canvasDom.getContext("2d");
 const drawingSpeedInput = document.querySelector("#drawingSpeedInput");
 const maxTicksInput = document.querySelector("#maxTicksInput");
+const maxLineLengthInput = document.querySelector("#maxLineLengthInput");
 const startingPositionInputX = document.querySelector("#startingPositionInputX");
 const startingPositionInputY = document.querySelector("#startingPositionInputY");
 
@@ -15,6 +16,7 @@ let currentDrawingCycle;
 let drawingTick = 0;
 let drawingSpeed = 10;
 let maxTicks = 120;
+let maxLineLength = 5;
 let startingPositionX = 500;
 let startingPositionY = 500;
 
@@ -26,7 +28,7 @@ let startingPositionY = 500;
 let draw = () => {
 
     if (drawingTick < maxTicks) {
-        canvas.lineTo(drawingTick * Math.random() * 6, drawingTick * Math.random() * 6);
+        canvas.lineTo(drawingTick * Math.random() * maxLineLength, drawingTick * Math.random() * maxLineLength);
         canvas.fillStyle = (`rgb(${drawingTick} , ${drawingTick} , ${drawingTick})`);
         canvas.fill();
         drawingTick++;
@@ -53,6 +55,10 @@ drawingSpeedInput.addEventListener("input" , function() {
 
 maxTicksInput.addEventListener("input" , function() {
     maxTicks = maxTicksInput.value;
+})
+
+maxLineLengthInput.addEventListener("input" , function(){
+    maxLineLength = maxLineLengthInput.value;
 })
 
 submitButton.addEventListener("click" , event => {
