@@ -1,0 +1,41 @@
+body {
+    background-image: url("style/background-image.png");
+    background-size: cover;
+    background-position: 50% 50%;
+    text-align: left;
+    font-family: arial;
+    overflow: hidden;
+}
+
+
+#canvasHolder {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    top: 0;
+}
+
+canvas {
+    padding: 0;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    height: 55%;
+}
+
+button , p {
+    font-size: 2vh;
+}
+
+#userForm {
+    position: fixed;
+    left: 1%;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+input {
+    font-size: 2vh;
+    height: 1vh;
+    width: 10vw;
+}

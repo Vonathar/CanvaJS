@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css">
+   </head> 
+   <body>
+      <div id="userMenu">
+         <form id="userForm">
+            <p><input id="maxTicksInput" type="text" placeholder="120">Max drawing ticks</p>
+            <p><input id="drawingSpeedInput" type="text" placeholder="200"> Speed, in ms</p>
+            <p><input id="startingPositionInputX" type="text" placeholder="500">Starting X</p>
+            <p><input id="startingPositionInputY" type="text" placeholder="500">Starting Y</p>
+            <button id="submitUserParameters">Submit</button>
+         </form>
+      </div>
+      <div id="canvasHolder">
+         <canvas class="canvas" width="1000" height="1000";></canvas>
+      </div>
+      <script src="script.js"></script>
+   </body>
+</html>
