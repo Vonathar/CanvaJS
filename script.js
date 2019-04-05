@@ -13,6 +13,8 @@ const userChoiceGreenInput = document.querySelector("#userChoiceGreenInput");
 const userChoiceBlueInput = document.querySelector("#userChoiceBlueInput");
 let radioButtons = document.querySelectorAll("[name=drawingStyle");
 const enableShadowsCheckbox = document.querySelector("#enableShadowsCheckbox");
+const enableQuadraticCurvesCheckbox = document.querySelector("#enableQuadraticCurvesCheckbox");
+const enableLinesCheckbox = document.querySelector("#enableLinesCheckbox");
 
 
 // User preferences
@@ -22,6 +24,8 @@ let drawingTick = 0;
 let drawingSpeed = 15;
 let drawingStyle = "fillStyle";
 let areShadowsEnabled = true;
+let areLinesEnabled = true;
+let areQuadraticCurvesEnabled = false;
 let shadowsMultiplier = 1;
 let maxTicks = 120;
 let maxLineLength = 10;
@@ -47,7 +51,12 @@ let blueMaxIncrease = blueInitialValue * 1.20;
 let draw = () => {
 
     if (drawingTick < maxTicks) {
-        canvas.lineTo(drawingTick * Math.random() * maxLineLength, drawingTick * Math.random() * maxLineLength);
+        if (areLinesEnabled) {
+            canvas.lineTo(drawingTick * Math.random() * maxLineLength, drawingTick * Math.random() * maxLineLength);
+        }
+        if (areQuadraticCurvesEnabled) {
+            canvas.quadraticCurveTo(drawingTick * Math.random() * maxLineLength , drawingTick * Math.random() * maxLineLength , drawingTick * Math.random() * maxLineLength , drawingTick * Math.random() * maxLineLength );
+        }
 
         // Gradually increases the RGB values up until +20%; does not allow the value to go over 255
         if (areShadowsEnabled) {
@@ -180,4 +189,20 @@ enableShadowsCheckbox.addEventListener("change" , function() {
     } else {
         areShadowsEnabled = false;
     }
-});
+})
+
+enableQuadraticCurvesCheckbox.addEventListener("change" , function() {
+    if (enableQuadraticCurvesCheckbox.checked) {
+        areQuadraticCurvesEnabled = true;
+    } else {
+        areQuadraticCurvesEnabled = false;
+    }
+})
+
+enableLinesCheckbox.addEventListener("change" , function() {
+    if (enableLinesCheckbox.checked) {
+        areLinesEnabled = true;
+    } else {
+        areLinesEnabled = false;
+    }
+})
