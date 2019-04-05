@@ -75,6 +75,8 @@ let draw = () => {
             canvas.stroke();
         }
         drawingTick++;
+        console.log(`Tick with DS ${drawingSpeed} SpX ${startingPositionX} SpY ${startingPositionY} DSty ${drawingStyle} R${userChoiceRed} G${userChoiceGreen} B${userChoiceBlue}`);
+        console.log(typeof(userChoiceBlue));
 
     } else {
         stopAndResetDrawing();
@@ -88,9 +90,22 @@ let stopAndResetDrawing = () => {
 
     drawingTick = 0;
     shadowsMultiplier = 1;
-    userChoiceRed = userChoiceRedInput.value;
-    userChoiceGreen = userChoiceGreenInput.value;
-    userChoiceBlue = userChoiceBlueInput.value;
+
+    if (!userChoiceRedInput.value) {
+        userChoiceRed = userChoiceRedInput.placeholder;
+    } else {
+        userChoiceRed = userChoiceRedInput.value;
+    }
+
+    if (!userChoiceGreenInput.value) {
+        userChoiceGreen = userChoiceGreenInput.placeholder;
+    }
+
+    if (!userChoiceBlueInput.value) {
+        userChoiceBlue = userChoiceBlueInput.placeholder;
+    }
+
+
     redInitialValue = userChoiceRed;
     greenInitialValue = userChoiceGreen;
     blueInitialValue = userChoiceBlue;
@@ -102,15 +117,13 @@ let stopAndResetDrawing = () => {
 // Clean the canvas, initialise the drawing path and move the starting point to the user's preferred position (+ call stopAndResetDrawing in case the last cycle did not finish)
 
 let startDrawing = () => {
+
+    stopAndResetDrawing();
     console.log(`Called with DS ${drawingSpeed} SpX ${startingPositionX} SpY ${startingPositionY} DSty ${drawingStyle} R${userChoiceRed} G${userChoiceGreen} B${userChoiceBlue}`);
     canvas.clearRect(0, 0, canvasDom.width , canvasDom.height);
     canvas.beginPath();
     canvas.lineTo(startingPositionX, startingPositionY);
 
-    // Only run the reset if the canvas has been modified
-    if (drawingTick != 0) {
-        stopAndResetDrawing();
-    }
     currentDrawingCycle = setInterval(draw , drawingSpeed);
 }
 
