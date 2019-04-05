@@ -107,7 +107,10 @@ let startDrawing = () => {
     canvas.beginPath();
     canvas.lineTo(startingPositionX, startingPositionY);
 
-    stopAndResetDrawing();
+    // Only run the reset if the canvas has been modified
+    if (drawingTick != 0) {
+        stopAndResetDrawing();
+    }
     currentDrawingCycle = setInterval(draw , drawingSpeed);
 }
 
