@@ -7,11 +7,17 @@
    <body>
       <div id="userMenu">
          <form id="userForm">
-            <p><input id="maxTicksInput" type="text" placeholder="120">Max drawing ticks</p>
+            <p><input id="maxTicksInput" type="text" placeholder="100">Max drawing ticks</p>
             <p><input id="maxLineLengthInput" type="text" placeholder="5">Max line length</p>
-            <p><input id="drawingSpeedInput" type="text" placeholder="200"> Speed, in ms</p>
+            <p><input id="drawingSpeedInput" type="text" placeholder="15"> Speed, in ms</p>
             <p><input id="startingPositionInputX" type="text" placeholder="500">Starting X</p>
             <p><input id="startingPositionInputY" type="text" placeholder="500">Starting Y</p>
+            <br>
+            <p>Fill<input id="drawingStyleFillRadio" type="radio" name="drawingStyle" value="fillStyle" checked>Stroke<input id="drawingStyleStrokeRadio" type="radio" name="drawingStyle" value="strokeStyle"></inpur></p>
+            <p><input id="userChoiceRedInput" type="text" placeholder="160">RGB (Red)</p>
+            <p><input id="userChoiceGreenInput" type="text" placeholder="30">RGB (Green)</p>
+            <p><input id="userChoiceBlueInput" type="text" placeholder="50">RGB (Blue)</p>
+            <p><input id="enableShadowsCheckbox" type="checkbox" checked>Enable shadows</p>
             <button id="submitUserParameters">Submit</button>
          </form>
       </div>
