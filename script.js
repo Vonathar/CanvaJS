@@ -112,10 +112,14 @@ let stopAndResetDrawing = () => {
 
     if (!userChoiceGreenInput.value) {
         userChoiceGreen = userChoiceGreenInput.placeholder;
+    } else {
+        userChoiceGreen = userChoiceGreenInput.value;
     }
 
     if (!userChoiceBlueInput.value) {
         userChoiceBlue = userChoiceBlueInput.placeholder;
+    } else {
+        userChoiceBlue = userChoiceBlueInput.value;
     }
 
 
