@@ -24,12 +24,12 @@ let drawingStyle = "fillStyle";
 let areShadowsEnabled = true;
 let shadowsMultiplier = 1;
 let maxTicks = 120;
-let maxLineLength = 5;
+let maxLineLength = 10;
 let userChoiceRed = 160;
 let userChoiceGreen = 30;
 let userChoiceBlue = 50;
-let startingPositionX = 500;
-let startingPositionY = 500;
+let startingPositionX = 1000;
+let startingPositionY = 1000;
 
 
 
@@ -62,10 +62,12 @@ let draw = () => {
             }
             if ((userChoiceBlue * shadowsMultiplier) < blueMaxIncrease && userChoiceBlue < 255) {
                 userChoiceBlue *= shadowsMultiplier;
-                console.log(userChoiceBlue * shadowsMultiplier);
             }
 
             shadowsMultiplier += 0.00003;
+            console.log(userChoiceBlue * shadowsMultiplier);
+        } else {
+            canvas.fillStyle = (`rgb(${userChoiceRed} , ${userChoiceGreen} , ${userChoiceBlue})`);
         }
 
         // Fill or stroke the lines, then procede to the next tick
@@ -76,7 +78,6 @@ let draw = () => {
         }
         drawingTick++;
         console.log(`Tick with DS ${drawingSpeed} SpX ${startingPositionX} SpY ${startingPositionY} DSty ${drawingStyle} R${userChoiceRed} G${userChoiceGreen} B${userChoiceBlue}`);
-        console.log(typeof(userChoiceBlue));
 
     } else {
         stopAndResetDrawing();
@@ -114,7 +115,7 @@ let stopAndResetDrawing = () => {
     blueMaxIncrease = blueInitialValue * 1.20;
 }
 
-// Clean the canvas, initialise the drawing path and move the starting point to the user's preferred position (+ call stopAndResetDrawing in case the last cycle did not finish)
+// Clean the canvas, initialise the drawing path and move the starting point to the user's preferred position
 
 let startDrawing = () => {
 
