@@ -15,6 +15,8 @@ let radioButtons = document.querySelectorAll("[name=drawingStyle");
 const enableShadowsCheckbox = document.querySelector("#enableShadowsCheckbox");
 const enableQuadraticCurvesCheckbox = document.querySelector("#enableQuadraticCurvesCheckbox");
 const enableLinesCheckbox = document.querySelector("#enableLinesCheckbox");
+const enableCanvasBorderCheckbox = document.querySelector("#enableCanvasBorderCheckbox");
+const canvasBorderSizeSelect = document.querySelector("#canvasBorderSizeSelect");
 
 
 // User preferences
@@ -34,7 +36,8 @@ let userChoiceGreen = 30;
 let userChoiceBlue = 50;
 let startingPositionX = 1000;
 let startingPositionY = 1000;
-
+let isCanvasBorderEnabled = false;
+let canvasBorderSizeString = "smallCanvasBorder";
 
 
 // Main drawing function
@@ -138,6 +141,26 @@ let startDrawing = () => {
 }
 
 
+// Window options
+
+// Enable the border around the canvas and assign it the currenty selected size option
+let enableCanvasBorder = () => {
+    if (canvasBorderSizeString == "smallCanvasBorder") {
+        canvasDom.style.border =  "1px solid black";
+    }
+    else if (canvasBorderSizeString == "mediumCanvasBorder") {
+        canvasDom.style.border = "3px solid black";
+    }
+    else if (canvasBorderSizeString == "largeCanvasBorder") {
+        canvasDom.style.border = "5px solid black";
+    }
+}
+
+let disableCanvasBorder = () => {
+    canvasDom.style.border = "";
+}
+
+
 // Event listeners
 
 drawingSpeedInput.addEventListener("input" , function() {
@@ -204,5 +227,23 @@ enableLinesCheckbox.addEventListener("change" , function() {
         areLinesEnabled = true;
     } else {
         areLinesEnabled = false;
+    }
+})
+
+enableCanvasBorderCheckbox.addEventListener("change" , function() {
+    if (enableCanvasBorderCheckbox.checked) {
+        isCanvasBorderEnabled = true;
+        enableCanvasBorder();
+    } else {
+        isCanvasBorderEnabled = false;
+        disableCanvasBorder();
+    }
+})
+
+// Update the border size and update it only if the option to enable it is already active
+canvasBorderSizeSelect.addEventListener("change" , function() {
+    canvasBorderSizeString = canvasBorderSizeSelect.value;
+    if (enableCanvasBorderCheckbox.checked) {
+        enableCanvasBorder();
     }
 })

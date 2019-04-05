@@ -34,8 +34,20 @@ button , p {
     padding: 1%;
 }
 
+#optionsForm {
+    position: fixed;
+    right: 1%;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+
 input {
     font-size: 2vh;
     height: 1vh;
     width: 3vw;
+}
+
+select {
+    margin: 1vh;
 }
