@@ -34,8 +34,8 @@ let maxLineLength = 10;
 let userChoiceRed = 160;
 let userChoiceGreen = 30;
 let userChoiceBlue = 50;
-let startingPositionX = 1000;
-let startingPositionY = 1000;
+let startingPositionX = 2000;
+let startingPositionY = 2000;
 let isCanvasBorderEnabled = false;
 let canvasBorderSizeString = "smallCanvasBorder";
 

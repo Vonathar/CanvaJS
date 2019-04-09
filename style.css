@@ -1,9 +1,9 @@
 body {
-    background-image: url("style/background-image.png");
+    background-image: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-033.jpg");
     background-size: cover;
     background-position: 50% 50%;
     text-align: left;
-    font-family: arial;
+    font-family: Montserrat;
     overflow: hidden;
 }
 
@@ -19,17 +19,18 @@ canvas {
     padding: 0;
     margin: auto;
     position: relative;
-    top: 20%;
-    height: 75%;
+    height: 70%;
+    top: 15%;
+    bottom: 15%;
+
 }
 
 button , p {
-    font-size: 2vh;
+    font-size: 1.5vh;
 }
 
 #userForm {
     position: fixed;
-    left: 1%;
     border: 2px solid black;
     padding: 1%;
 }
