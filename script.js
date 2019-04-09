@@ -17,6 +17,7 @@ const enableQuadraticCurvesCheckbox = document.querySelector("#enableQuadraticCu
 const enableLinesCheckbox = document.querySelector("#enableLinesCheckbox");
 const enableCanvasBorderCheckbox = document.querySelector("#enableCanvasBorderCheckbox");
 const canvasBorderSizeSelect = document.querySelector("#canvasBorderSizeSelect");
+const enableDarkBackgroundCheckbox = document.querySelector("#enableDarkBackgroundCheckbox");
 
 
 // User preferences
@@ -231,6 +232,17 @@ enableLinesCheckbox.addEventListener("change" , function() {
         areLinesEnabled = true;
     } else {
         areLinesEnabled = false;
+    }
+})
+
+enableDarkBackgroundCheckbox.addEventListener("change" , function() {
+    if (enableDarkBackgroundCheckbox.checked) {
+        canvasDom.style.backgroundColor = "black";
+        canvasDom.style.boxShadow = "25px 25px 80px #888888";
+    }
+    else {
+        canvasDom.style.backgroundColor = "";
+        canvasDom.style.boxShadow = "";
     }
 })
 
